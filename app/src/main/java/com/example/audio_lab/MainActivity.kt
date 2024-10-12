@@ -68,7 +68,6 @@ class MainActivity : ComponentActivity() {
         ) { granted ->
             hasRecordPermission = granted
             if (!granted) {
-                // Handle permission denial
                 Toast.makeText(context, "Permission denied. Cannot record audio.", Toast.LENGTH_LONG).show()
             }
         }
@@ -132,7 +131,6 @@ class MainActivity : ComponentActivity() {
     private fun startRecording() {
         // Check if permission is granted
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted, handle accordingly
             Toast.makeText(this, "Permission denied. Cannot record audio.", Toast.LENGTH_LONG).show()
             return
         }
